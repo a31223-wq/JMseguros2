@@ -1,13 +1,458 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Vanilla JS Insurance Site</title>
+    <title>SecureLife Insurance</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Favicon (tens o ficheiro em /public/vite.svg) -->
+    <!-- Opção A: usa o ficheiro na raiz do site (recomendado) -->
+    <!-- Move public/vite.svg para a raiz OU duplica para ./vite.svg -->
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
   </head>
+
   <body>
-    <div id="app"></div>
+    <!-- Background overlay -->
+    <div class="background-overlay"></div>
+
+    <!-- HEADER -->
+    <header id="header" class="header">
+      <div class="container">
+        <div class="header-content">
+          <a class="logo" href="#home">
+            <span class="logo-text">SecureLife</span>
+          </a>
+
+          <nav id="nav" class="nav">
+            <a class="nav-link" href="#home">Início</a>
+            <a class="nav-link" href="#services">Seguros</a>
+            <a class="nav-link" href="#benefits">Vantagens</a>
+            <a class="nav-link" href="#testimonials">Testemunhos</a>
+            <a class="nav-link" href="#faq">FAQ</a>
+            <a class="nav-link" href="#contact">Contacto</a>
+          </nav>
+
+          <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main-content">
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-slideshow">
+          <!-- Slide 1 -->
+          <div class="hero-slide active">
+            <img src="./assets/images/hero-1.jpg" alt="Família protegida" />
+            <div class="hero-slide-overlay"></div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="hero-slide">
+            <img src="./assets/images/hero-2.jpg" alt="Casa segura" />
+            <div class="hero-slide-overlay"></div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="hero-slide">
+            <img src="./assets/images/hero-3.jpg" alt="Carro seguro" />
+            <div class="hero-slide-overlay"></div>
+          </div>
+
+          <!-- Hero content -->
+          <div class="container">
+            <div class="hero-content">
+              <h1 class="hero-title">Proteção inteligente para a sua vida</h1>
+              <p class="hero-subtitle">
+                Soluções de seguro simples, transparentes e adaptadas a si — casa, auto, saúde e vida.
+              </p>
+              <div class="hero-cta">
+                <a class="btn btn-primary" href="#contact">Pedir Simulação</a>
+                <a class="btn btn-secondary" href="#services" style="margin-left: 12px;">Ver Coberturas</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrows -->
+          <button class="hero-arrow hero-arrow-prev" aria-label="Anterior">❮</button>
+          <button class="hero-arrow hero-arrow-next" aria-label="Seguinte">❯</button>
+
+          <!-- Dots -->
+          <div class="hero-dots" aria-label="Navegação do slideshow">
+            <button class="hero-dot active" aria-label="Slide 1"></button>
+            <button class="hero-dot" aria-label="Slide 2"></button>
+            <button class="hero-dot" aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSURANCE CARDS -->
+      <section id="services" class="insurance-section">
+        <div class="container">
+          <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Seguros</h2>
+            <p class="section-subtitle">
+              Escolha a proteção certa. Coberturas claras e apoio quando mais precisa.
+            </p>
+          </div>
+
+          <div class="insurance-grid">
+            <div class="insurance-card animate-on-scroll">
+              <div class="insurance-card-icon">🏠</div>
+              <h3 class="insurance-card-title">Casa</h3>
+              <p class="insurance-card-description">
+                Proteja a sua casa contra imprevistos: incêndio, danos por água, roubo e mais.
+              </p>
+              <ul class="insurance-card-features">
+                <li>Assistência 24/7</li>
+                <li>Danos por água e incêndio</li>
+                <li>Responsabilidade civil</li>
+              </ul>
+              <a class="btn btn-primary" href="#contact">Quero este</a>
+            </div>
+
+            <div class="insurance-card animate-on-scroll">
+              <div class="insurance-card-icon">🚗</div>
+              <h3 class="insurance-card-title">Automóvel</h3>
+              <p class="insurance-card-description">
+                Do básico ao completo: cobertura de danos, assistência em viagem e viatura de substituição.
+              </p>
+              <ul class="insurance-card-features">
+                <li>Assistência em viagem</li>
+                <li>Quebra de vidros</li>
+                <li>Proteção do condutor</li>
+              </ul>
+              <a class="btn btn-primary" href="#contact">Pedir cotação</a>
+            </div>
+
+            <div class="insurance-card animate-on-scroll">
+              <div class="insurance-card-icon">❤️</div>
+              <h3 class="insurance-card-title">Vida</h3>
+              <p class="insurance-card-description">
+                Garanta tranquilidade para a sua família com proteção financeira em momentos difíceis.
+              </p>
+              <ul class="insurance-card-features">
+                <li>Cobertura por invalidez</li>
+                <li>Capital ajustável</li>
+                <li>Apoio familiar</li>
+              </ul>
+              <a class="btn btn-primary" href="#contact">Simular</a>
+            </div>
+
+            <div class="insurance-card animate-on-scroll">
+              <div class="insurance-card-icon">🩺</div>
+              <h3 class="insurance-card-title">Saúde</h3>
+              <p class="insurance-card-description">
+                Consultas, exames e tratamentos com acesso rápido a uma rede alargada.
+              </p>
+              <ul class="insurance-card-features">
+                <li>Rede convencionada</li>
+                <li>Reembolsos</li>
+                <li>Telemedicina</li>
+              </ul>
+              <a class="btn btn-primary" href="#contact">Quero saber mais</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFITS -->
+      <section id="benefits">
+        <div class="container">
+          <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Porquê escolher-nos</h2>
+            <p class="section-subtitle">
+              Menos complicações, mais proteção e um atendimento rápido.
+            </p>
+          </div>
+
+          <div class="benefits-grid">
+            <div class="benefit-item animate-on-scroll">
+              <div class="benefit-icon">⚡</div>
+              <h3 class="benefit-title">Resposta rápida</h3>
+              <p class="benefit-description">
+                Simulações e propostas sem burocracias e com acompanhamento.
+              </p>
+            </div>
+
+            <div class="benefit-item animate-on-scroll">
+              <div class="benefit-icon">🛡️</div>
+              <h3 class="benefit-title">Coberturas claras</h3>
+              <p class="benefit-description">
+                Explicamos tudo em linguagem simples para tomar decisões seguras.
+              </p>
+            </div>
+
+            <div class="benefit-item animate-on-scroll">
+              <div class="benefit-icon">🤝</div>
+              <h3 class="benefit-title">Apoio humano</h3>
+              <p class="benefit-description">
+                Atendimento real e acompanhamento em sinistros do início ao fim.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials" class="testimonials-section">
+        <div class="container">
+          <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Testemunhos</h2>
+            <p class="section-subtitle">O que os nossos clientes dizem.</p>
+          </div>
+
+          <div class="testimonials-grid">
+            <div class="testimonial-card animate-on-scroll">
+              <div class="testimonial-rating">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <p class="testimonial-text">
+                “Processo super rápido e explicaram-me as coberturas sem complicar. Recomendo!”
+              </p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">
+                  <img src="./assets/images/avatar-1.jpg" alt="Cliente" />
+                </div>
+                <div>
+                  <div class="testimonial-name">Ana Ribeiro</div>
+                  <div class="testimonial-role">Seguro Automóvel</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+              <div class="testimonial-rating">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <p class="testimonial-text">
+                “Atendimento impecável. Quando precisei, resolveram tudo com rapidez.”
+              </p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">
+                  <img src="./assets/images/avatar-2.jpg" alt="Cliente" />
+                </div>
+                <div>
+                  <div class="testimonial-name">Miguel Santos</div>
+                  <div class="testimonial-role">Seguro Casa</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll">
+              <div class="testimonial-rating">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <p class="testimonial-text">
+                “As opções são claras e deram-me uma solução ajustada ao meu orçamento.”
+              </p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">
+                  <img src="./assets/images/avatar-3.jpg" alt="Cliente" />
+                </div>
+                <div>
+                  <div class="testimonial-name">Sofia Lima</div>
+                  <div class="testimonial-role">Seguro Saúde</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="container">
+          <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <p class="section-subtitle">Respostas rápidas às dúvidas mais comuns.</p>
+          </div>
+
+          <div class="faq-container">
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question">
+                Quanto tempo demora a receber uma simulação?
+                <span class="faq-icon">⌄</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Normalmente enviamos uma simulação no próprio dia, dependendo do tipo de seguro e dados fornecidos.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question">
+                Posso alterar coberturas mais tarde?
+                <span class="faq-icon">⌄</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Sim. Pode ajustar coberturas, capitais e franquias conforme a sua necessidade.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question">
+                Como funciona em caso de sinistro?
+                <span class="faq-icon">⌄</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Contacta-nos e guiamos todo o processo. Recolhemos os dados e tratamos da participação com a seguradora.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">
+              Envia a tua mensagem e pedimos uma simulação sem compromisso.
+            </p>
+          </div>
+
+          <div class="contact-content">
+            <div class="contact-info animate-on-scroll">
+              <h3>Fale connosco</h3>
+
+              <div class="contact-info-item">
+                <div>📍</div>
+                <div>
+                  <div class="info-label">Morada</div>
+                  <div class="info-value">Rua Exemplo, 123 — Lisboa</div>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div>📞</div>
+                <div>
+                  <div class="info-label">Telefone</div>
+                  <div class="info-value">+351 910 000 000</div>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div>✉️</div>
+                <div>
+                  <div class="info-label">Email</div>
+                  <div class="info-value">contacto@securelife.pt</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-wrapper animate-on-scroll">
+              <div id="contactFormContainer">
+                <form id="contactForm" class="contact-form">
+                  <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input id="name" name="name" type="text" placeholder="O seu nome" />
+                    <div id="nameError" class="error-message"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="o.seu@email.com" />
+                    <div id="emailError" class="error-message"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone">Telefone (opcional)</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+351 9xx xxx xxx" />
+                    <div id="phoneError" class="error-message"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="insurance-type">Tipo de Seguro</label>
+                    <select id="insurance-type" name="insurance-type">
+                      <option value="Casa">Casa</option>
+                      <option value="Automóvel">Automóvel</option>
+                      <option value="Vida">Vida</option>
+                      <option value="Saúde">Saúde</option>
+                      <option value="Outro">Outro</option>
+                    </select>
+                    <div id="insurance-typeError" class="error-message"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" placeholder="Diz-nos o que precisas..."></textarea>
+                    <div id="messageError" class="error-message"></div>
+                  </div>
+
+                  <button class="btn btn-primary btn-full" type="submit">Enviar</button>
+                </form>
+              </div>
+
+              <div id="successMessage" class="success-message" style="display:none;">
+                <div style="font-size: 48px;">✅</div>
+                <h3>Mensagem enviada!</h3>
+                <p>Obrigado. Vamos responder o mais rápido possível.</p>
+                <button id="sendAnotherBtn" class="btn btn-secondary" type="button">Enviar outra</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <div class="footer-logo">
+              <span>SecureLife</span>
+            </div>
+            <p class="footer-description">
+              Proteção clara, rápida e humana.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Links</h4>
+            <ul class="footer-links">
+              <li><a href="#services">Seguros</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="./privacy.html">Privacidade</a></li>
+              <li><a href="./cookies.html">Cookies</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Social</h4>
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook">f</a>
+              <a href="#" aria-label="Instagram">i</a>
+              <a href="#" aria-label="LinkedIn">in</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          © <span id="year"></span> SecureLife. Todos os direitos reservados.
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
     <script type="module" src="./js/main.js"></script>
-  </body>  
+
+    <!-- Ano automático -->
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
