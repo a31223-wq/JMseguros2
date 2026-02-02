@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seguro Auto | Jorge Marques Seguros</title>
+
+    <!-- (Opcional) Manténs Tailwind na home; aqui não precisas.
+         Se quiseres manter consistente, podes deixar como na home.
+    -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="/content/icons/JM-icon.svg" />
+  </head>
+
+  <body>
+    <div class="background-overlay"></div>
+
+    <!-- HEADER (igual ao estilo da home) -->
+    <header id="header" class="header">
+      <div class="site-container">
+        <div class="header-content">
+          <a class="logo" href="/index.html" aria-label="Jorge Marques Seguros">
+            <img
+              src="/content/icons/JM-horizontal.svg"
+              alt="Jorge Marques Seguros"
+              class="logo-image"
+            />
+          </a>
+
+          <nav id="nav" class="nav">
+            <a class="nav-link" href="/index.html#services">Seguros</a>
+            <a class="nav-link active" href="/seguro-auto/index.html">Seguro Auto</a>
+            <a class="nav-link" href="/index.html#contact">Contactos</a>
+            <a class="btn btn-primary" href="/seguro-auto/index.html">Simular</a>
+          </nav>
+
+          <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- TOP INTRO (pequeno, profissional) -->
+      <section class="quote-hero">
+        <div class="site-container">
+          <div class="quote-hero__inner">
+            <div class="quote-hero__badge">Simulação</div>
+            <h1 class="quote-hero__title">Seguro Auto</h1>
+            <p class="quote-hero__subtitle">
+              Preencha o formulário e enviamos as melhores opções com rapidez e clareza.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORM -->
+      <section class="quote-form-page">
+        <div class="site-container">
+          <div class="form-card">
+            <div class="form-card__header">
+              <h2>Pedido de Orçamento</h2>
+              <p>Campos com <strong>*</strong> são obrigatórios.</p>
+            </div>
+
+            <form id="autoQuoteForm" novalidate>
+              <!-- DADOS DO TOMADOR -->
+              <section class="form-section" aria-labelledby="sec-pessoais">
+                <div class="form-section__head">
+                  <h3 class="form-section__title" id="sec-pessoais">Dados do Tomador</h3>
+                  <p class="form-section__desc">Informação de contacto e identificação.</p>
+                </div>
+
+                <div class="quote-grid">
+                  <div class="q-field q-col-12">
+                    <label for="nome">Nome Completo <span class="req">*</span></label>
+                    <input id="nome" name="nome" type="text" placeholder="Ex: João Miguel Silva" autocomplete="name" required />
+                    <div class="q-error" data-error-for="nome"></div>
+                  </div>
+
+                  <div class="q-field q-col-8">
+                    <label for="morada">Morada Fiscal <span class="req">*</span></label>
+                    <input id="morada" name="morada" type="text" placeholder="Rua, nº, andar" autocomplete="street-address" required />
+                    <div class="q-error" data-error-for="morada"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="codigo_postal">Código Postal <span class="req">*</span></label>
+                    <input id="codigo_postal" name="codigo_postal" type="text" placeholder="1234-567" inputmode="numeric" maxlength="8" required />
+                    <div class="q-hint">Formato PT: 1234-567</div>
+                    <div class="q-error" data-error-for="codigo_postal"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="localidade">Localidade <span class="req">*</span></label>
+                    <input id="localidade" name="localidade" type="text" placeholder="Ex: Nazaré" autocomplete="address-level2" required />
+                    <div class="q-error" data-error-for="localidade"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="nif">NIF <span class="req">*</span></label>
+                    <input id="nif" name="nif" type="text" placeholder="9 dígitos" inputmode="numeric" maxlength="9" required />
+                    <div class="q-hint">Validação por checksum.</div>
+                    <div class="q-error" data-error-for="nif"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="telemovel">Contacto Telefónico <span class="req">*</span></label>
+                    <input id="telemovel" name="telemovel" type="tel" placeholder="9xxxxxxxx" inputmode="numeric" maxlength="9" autocomplete="tel" required />
+                    <div class="q-error" data-error-for="telemovel"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="email">Email <span class="req">*</span></label>
+                    <input id="email" name="email" type="email" placeholder="exemplo@email.com" autocomplete="email" required />
+                    <div class="q-error" data-error-for="email"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="data_nascimento">Data de Nascimento <span class="req">*</span></label>
+                    <input id="data_nascimento" name="data_nascimento" type="date" required />
+                    <div class="q-error" data-error-for="data_nascimento"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="genero">Género</label>
+                    <select id="genero" name="genero">
+                      <option value="">—</option>
+                      <option value="F">Feminino</option>
+                      <option value="M">Masculino</option>
+                      <option value="O">Outro</option>
+                      <option value="NS">Prefiro não dizer</option>
+                    </select>
+                    <div class="q-error" data-error-for="genero"></div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- DADOS DO VEÍCULO -->
+              <section class="form-section" aria-labelledby="sec-veiculo">
+                <div class="form-section__head">
+                  <h3 class="form-section__title" id="sec-veiculo">Dados do Veículo</h3>
+                  <p class="form-section__desc">Detalhes do automóvel a segurar.</p>
+                </div>
+
+                <div class="quote-grid">
+                  <div class="q-field q-col-4">
+                    <label for="matricula">Matrícula <span class="req">*</span></label>
+                    <input id="matricula" name="matricula" type="text" placeholder="AA-00-AA / 00-AA-00" maxlength="10" required />
+                    <div class="q-error" data-error-for="matricula"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="data_matricula">Data da Matrícula <span class="req">*</span></label>
+                    <input id="data_matricula" name="data_matricula" type="date" required />
+                    <div class="q-hint">Tem de ser no passado.</div>
+                    <div class="q-error" data-error-for="data_matricula"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="lugares">Número de lugares <span class="req">*</span></label>
+                    <input id="lugares" name="lugares" type="number" min="1" max="99" step="1" placeholder="Ex: 5" required />
+                    <div class="q-error" data-error-for="lugares"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="marca">Marca <span class="req">*</span></label>
+                    <input id="marca" name="marca" type="text" placeholder="Ex: Renault" required />
+                    <div class="q-error" data-error-for="marca"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="modelo">Modelo <span class="req">*</span></label>
+                    <input id="modelo" name="modelo" type="text" placeholder="Ex: Clio" required />
+                    <div class="q-error" data-error-for="modelo"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="versao">Versão</label>
+                    <input id="versao" name="versao" type="text" placeholder="Ex: 1.5 dCi" />
+                    <div class="q-error" data-error-for="versao"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="cilindrada">Cilindrada (cc) <span class="req">*</span></label>
+                    <input id="cilindrada" name="cilindrada" type="number" min="1" step="1" placeholder="Ex: 1461" required />
+                    <div class="q-error" data-error-for="cilindrada"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="peso_bruto">Peso Bruto (kg) <span class="req">*</span></label>
+                    <input id="peso_bruto" name="peso_bruto" type="number" min="1" step="1" placeholder="Ex: 1700" required />
+                    <div class="q-error" data-error-for="peso_bruto"></div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- INFO COMPLEMENTAR -->
+              <section class="form-section" aria-labelledby="sec-perguntas">
+                <div class="form-section__head">
+                  <h3 class="form-section__title" id="sec-perguntas">Informação Complementar</h3>
+                  <p class="form-section__desc">Ajuda-nos a afinar a proposta.</p>
+                </div>
+
+                <div class="quote-grid">
+                  <div class="q-field q-col-6">
+                    <label for="data_carta">Quando tirou a carta de condução? <span class="req">*</span></label>
+                    <input id="data_carta" name="data_carta" type="date" required />
+                    <div class="q-error" data-error-for="data_carta"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="inicio_seguro">Data em que o seguro vai iniciar? <span class="req">*</span></label>
+                    <input id="inicio_seguro" name="inicio_seguro" type="date" required />
+                    <div class="q-error" data-error-for="inicio_seguro"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="uso_ocasional">É para uso ocasional?</label>
+                    <select id="uso_ocasional" name="uso_ocasional">
+                      <option value="">—</option>
+                      <option value="sim">Sim</option>
+                      <option value="nao">Não</option>
+                    </select>
+                    <div class="q-error" data-error-for="uso_ocasional"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="direitos_ressalvados">Direitos ressalvados?</label>
+                    <select id="direitos_ressalvados" name="direitos_ressalvados">
+                      <option value="">—</option>
+                      <option value="sim">Sim</option>
+                      <option value="nao">Não</option>
+                    </select>
+                    <div class="q-error" data-error-for="direitos_ressalvados"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="atrelado_ate_300">Atrelado até 300kg?</label>
+                    <select id="atrelado_ate_300" name="atrelado_ate_300">
+                      <option value="">—</option>
+                      <option value="sim">Sim</option>
+                      <option value="nao">Não</option>
+                    </select>
+                    <div class="q-error" data-error-for="atrelado_ate_300"></div>
+                  </div>
+
+                  <div class="q-field q-col-12">
+                    <label for="obs">Observações (opcional)</label>
+                    <textarea id="obs" name="obs" rows="4" placeholder="Ex: coberturas pretendidas, assistência em viagem, etc."></textarea>
+                    <div class="q-error" data-error-for="obs"></div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="form-actions">
+                <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+                <button class="btn btn-primary quote-submit" type="submit">Enviar pedido</button>
+              </div>
+
+              <input type="hidden" name="tipo" value="seguro_auto" />
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- JS do site -->
+    <script type="module" src="/js/main.js"></script>
+    <script src="/js/seguro.js" defer></script>
+  </body>
+</html>
