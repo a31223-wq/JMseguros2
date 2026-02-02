@@ -22,8 +22,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
-    document.getElementById('year').textContent =
-      new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();  
     function scrollToSection(id) {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -373,13 +372,13 @@
 <footer class="bg-gray-900 text-white py-12">
   <div class="max-w-6xl mx-auto px-4">
 
-    <div class="grid md:grid-cols-4 gap-8 mb-8">
+    <div class="grid md:grid-cols-4 gap-8 mb-8 text-center md:text-left">
 
       <!-- Marca -->
       <div>
-        <div class="flex items-center space-x-2 mb-4">
+        <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
           <i data-lucide="shield" class="w-8 h-8 text-blue-400"></i>
-          <span class="text-2xl font-bold">SeguroTotal</span>
+          <span class="text-2xl font-bold">Jorge Marques Seguros</span>
         </div>
 
         <p class="text-gray-400 mb-4">
@@ -387,12 +386,12 @@
         </p>
 
         <!-- Ícones sociais -->
-        <div class="flex space-x-4">
+        <div class="flex justify-center md:justify-start space-x-4">
           <a
             href="https://www.instagram.com/"
             target="_blank"
             rel="noopener"
-            class="text-gray-400 hover:text-blue-400 transition"
+            class="text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
             aria-label="Instagram"
           >
             <i data-lucide="instagram" class="w-5 h-5"></i>
@@ -402,7 +401,7 @@
             href="https://www.facebook.com/"
             target="_blank"
             rel="noopener"
-            class="text-gray-400 hover:text-blue-400 transition"
+            class="text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
             aria-label="Facebook"
           >
             <i data-lucide="facebook" class="w-5 h-5"></i>
@@ -430,6 +429,7 @@
             <button
               onclick="scrollToSection('about')"
               class="text-gray-400 hover:text-white transition"
+              type="button"
             >
               Sobre Nós
             </button>
@@ -441,6 +441,7 @@
             <button
               onclick="scrollToSection('contact')"
               class="text-gray-400 hover:text-white transition"
+              type="button"
             >
               Contacto
             </button>
@@ -455,7 +456,16 @@
           <li><a href="#" class="text-gray-400 hover:text-white transition">Termos e Condições</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidade</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white transition">Proteção de Dados</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition">Livro de Reclamações</a></li>
+          <li>
+            <a
+              href="https://www.livroreclamacoes.pt/"
+              target="_blank"
+              rel="noopener"
+              class="text-gray-400 hover:text-white transition"
+            >
+              Livro de Reclamações
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -473,6 +483,7 @@
 
   </div>
 </footer>
+
 
     <!-- JS -->
     <script type="module" src="./js/main.js"></script>
