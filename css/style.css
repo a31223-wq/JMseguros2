@@ -1209,8 +1209,9 @@ section {
   display: block;
 }
 .contact-icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  margin-top: 2px;
+  filter: none;
 }
+.contact-info-item .contact-icon {
+  /* se o svg for currentColor e estiver inline, funciona; com IMG depende do ficheiro */
+}
+
