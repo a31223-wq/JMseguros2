@@ -3,11 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seguro Auto | Jorge Marques Seguros</title>
+    <title>Simulação | Jorge Marques Seguros</title>
 
-    <!-- (Opcional) Manténs Tailwind na home; aqui não precisas.
-         Se quiseres manter consistente, podes deixar como na home.
-    -->
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="icon" type="image/svg+xml" href="/content/icons/JM-icon.svg" />
   </head>
@@ -15,7 +12,7 @@
   <body>
     <div class="background-overlay"></div>
 
-    <!-- HEADER (igual ao estilo da home) -->
+    <!-- HEADER -->
     <header id="header" class="header">
       <div class="site-container">
         <div class="header-content">
@@ -29,7 +26,7 @@
 
           <nav id="nav" class="nav">
             <a class="nav-link" href="/index.html#services">Seguros</a>
-            <a class="nav-link active" href="/seguro-auto/index.html">Seguro Auto</a>
+            <a class="nav-link active" href="/seguro-auto/index.html">Simular</a>
             <a class="nav-link" href="/index.html#contact">Contactos</a>
             <a class="btn btn-primary" href="/seguro-auto/index.html">Simular</a>
           </nav>
@@ -42,15 +39,49 @@
     </header>
 
     <main class="main-content">
-      <!-- TOP INTRO (pequeno, profissional) -->
+      <!-- TOP (categorias) -->
       <section class="quote-hero">
         <div class="site-container">
           <div class="quote-hero__inner">
-            <div class="quote-hero__badge">Simulação</div>
-            <h1 class="quote-hero__title">Seguro Auto</h1>
+            <h1 class="quote-hero__title">Simulação</h1>
             <p class="quote-hero__subtitle">
-              Preencha o formulário e enviamos as melhores opções com rapidez e clareza.
+              Escolha uma categoria e preencha os dados — respondemos com a melhor solução.
             </p>
+
+            <!-- CATEGORY NAV -->
+            <div class="quote-categories" role="tablist" aria-label="Categorias de simulação">
+              <button class="quote-cat active" type="button" role="tab" aria-selected="true" data-category="auto">
+                Auto
+              </button>
+
+              <button class="quote-cat" type="button" role="tab" aria-selected="false" data-category="moto">
+                Moto
+              </button>
+
+              <button class="quote-cat" type="button" role="tab" aria-selected="false" data-category="acidentes">
+                Acidentes Pessoais
+              </button>
+
+              <button class="quote-cat" type="button" role="tab" aria-selected="false" data-category="saude">
+                Saúde
+              </button>
+
+              <button class="quote-cat" type="button" role="tab" aria-selected="false" data-category="vida">
+                Vida Risco
+              </button>
+
+              <button class="quote-cat" type="button" role="tab" aria-selected="false" data-category="hab">
+                Multirriscos Habitação
+              </button>
+
+              <button class="quote-cat" type="button" role="tab" aria-selected="false" data-category="ppr">
+                PPR
+              </button>
+
+              <button class="quote-cat" type="button" role="tab" aria-selected="false" data-category="rc">
+                Resp. Civil Geral
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -60,16 +91,19 @@
         <div class="site-container">
           <div class="form-card">
             <div class="form-card__header">
-              <h2>Pedido de Orçamento</h2>
+              <h2 id="formTitle">Pedido de Simulação — Auto</h2>
               <p>Campos com <strong>*</strong> são obrigatórios.</p>
             </div>
 
-            <form id="autoQuoteForm" novalidate>
-              <!-- DADOS DO TOMADOR -->
-              <section class="form-section" aria-labelledby="sec-pessoais">
+            <form id="quoteForm" novalidate>
+              <!-- hidden -->
+              <input type="hidden" id="categoria" name="categoria" value="auto" />
+
+              <!-- DADOS DO CLIENTE (comum) -->
+              <section class="form-section">
                 <div class="form-section__head">
-                  <h3 class="form-section__title" id="sec-pessoais">Dados do Tomador</h3>
-                  <p class="form-section__desc">Informação de contacto e identificação.</p>
+                  <h3 class="form-section__title">Dados de Contacto</h3>
+                  <p class="form-section__desc">Usamos apenas para enviar a simulação.</p>
                 </div>
 
                 <div class="quote-grid">
@@ -79,32 +113,8 @@
                     <div class="q-error" data-error-for="nome"></div>
                   </div>
 
-                  <div class="q-field q-col-8">
-                    <label for="morada">Morada Fiscal <span class="req">*</span></label>
-                    <input id="morada" name="morada" type="text" placeholder="Rua, nº, andar" autocomplete="street-address" required />
-                    <div class="q-error" data-error-for="morada"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="codigo_postal">Código Postal <span class="req">*</span></label>
-                    <input id="codigo_postal" name="codigo_postal" type="text" placeholder="1234-567" inputmode="numeric" maxlength="8" required />
-                    <div class="q-error" data-error-for="codigo_postal"></div>
-                  </div>
-
                   <div class="q-field q-col-6">
-                    <label for="localidade">Localidade <span class="req">*</span></label>
-                    <input id="localidade" name="localidade" type="text" placeholder="Ex: Nazaré" autocomplete="address-level2" required />
-                    <div class="q-error" data-error-for="localidade"></div>
-                  </div>
-
-                  <div class="q-field q-col-6">
-                    <label for="nif">NIF <span class="req">*</span></label>
-                    <input id="nif" name="nif" type="text" placeholder="9 dígitos" inputmode="numeric" maxlength="9" required />
-                    <div class="q-error" data-error-for="nif"></div>
-                  </div>
-
-                  <div class="q-field q-col-6">
-                    <label for="telemovel">Contacto Telefónico <span class="req">*</span></label>
+                    <label for="telemovel">Telemóvel <span class="req">*</span></label>
                     <input id="telemovel" name="telemovel" type="tel" placeholder="9xxxxxxxx" inputmode="numeric" maxlength="9" autocomplete="tel" required />
                     <div class="q-error" data-error-for="telemovel"></div>
                   </div>
@@ -114,156 +124,338 @@
                     <input id="email" name="email" type="email" placeholder="exemplo@email.com" autocomplete="email" required />
                     <div class="q-error" data-error-for="email"></div>
                   </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="data_nascimento">Data de Nascimento <span class="req">*</span></label>
-                    <input id="data_nascimento" name="data_nascimento" type="date" required />
-                    <div class="q-error" data-error-for="data_nascimento"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="genero">Género</label>
-                    <select id="genero" name="genero">
-                      <option value="F">Feminino</option>
-                      <option value="M">Masculino</option>
-                      <option value="O">Outro</option>
-                      <option value="NS">Prefiro não dizer</option>
-                    </select>
-                    <div class="q-error" data-error-for="genero"></div>
-                  </div>
                 </div>
               </section>
 
-              <!-- DADOS DO VEÍCULO -->
-              <section class="form-section" aria-labelledby="sec-veiculo">
+              <!-- PAINÉIS POR CATEGORIA -->
+              <!-- AUTO -->
+              <section class="form-section category-panel active" data-category-panel="auto">
                 <div class="form-section__head">
-                  <h3 class="form-section__title" id="sec-veiculo">Dados do Veículo</h3>
-                  <p class="form-section__desc">Detalhes do automóvel a segurar.</p>
+                  <h3 class="form-section__title">Dados do Veículo (Auto)</h3>
+                  <p class="form-section__desc">Informação do automóvel para a proposta.</p>
                 </div>
 
                 <div class="quote-grid">
                   <div class="q-field q-col-4">
-                    <label for="matricula">Matrícula <span class="req">*</span></label>
-                    <input id="matricula" name="matricula" type="text" placeholder="AA-00-AA / 00-AA-00" maxlength="10" required />
-                    <div class="q-error" data-error-for="matricula"></div>
+                    <label for="auto_matricula">Matrícula <span class="req">*</span></label>
+                    <input id="auto_matricula" name="auto_matricula" type="text" placeholder="AA-00-AA" required />
+                    <div class="q-error" data-error-for="auto_matricula"></div>
                   </div>
 
                   <div class="q-field q-col-4">
-                    <label for="data_matricula">Data da Matrícula <span class="req">*</span></label>
-                    <input id="data_matricula" name="data_matricula" type="date" required />
-                    <div class="q-hint">Tem de ser no passado.</div>
-                    <div class="q-error" data-error-for="data_matricula"></div>
+                    <label for="auto_data_matricula">Data da Matrícula <span class="req">*</span></label>
+                    <input id="auto_data_matricula" name="auto_data_matricula" type="date" required />
+                    <div class="q-error" data-error-for="auto_data_matricula"></div>
                   </div>
 
                   <div class="q-field q-col-4">
-                    <label for="lugares">Número de lugares <span class="req">*</span></label>
-                    <input id="lugares" name="lugares" type="number" min="1" max="99" step="1" placeholder="Ex: 5" required />
-                    <div class="q-error" data-error-for="lugares"></div>
+                    <label for="auto_lugares">Nº Lugares <span class="req">*</span></label>
+                    <input id="auto_lugares" name="auto_lugares" type="number" min="1" max="99" placeholder="Ex: 5" required />
+                    <div class="q-error" data-error-for="auto_lugares"></div>
                   </div>
 
                   <div class="q-field q-col-4">
-                    <label for="marca">Marca <span class="req">*</span></label>
-                    <input id="marca" name="marca" type="text" placeholder="Ex: Renault" required />
-                    <div class="q-error" data-error-for="marca"></div>
+                    <label for="auto_marca">Marca <span class="req">*</span></label>
+                    <input id="auto_marca" name="auto_marca" type="text" placeholder="Ex: Renault" required />
+                    <div class="q-error" data-error-for="auto_marca"></div>
                   </div>
 
                   <div class="q-field q-col-4">
-                    <label for="modelo">Modelo <span class="req">*</span></label>
-                    <input id="modelo" name="modelo" type="text" placeholder="Ex: Clio" required />
-                    <div class="q-error" data-error-for="modelo"></div>
+                    <label for="auto_modelo">Modelo <span class="req">*</span></label>
+                    <input id="auto_modelo" name="auto_modelo" type="text" placeholder="Ex: Clio" required />
+                    <div class="q-error" data-error-for="auto_modelo"></div>
                   </div>
 
                   <div class="q-field q-col-4">
-                    <label for="versao">Versão</label>
-                    <input id="versao" name="versao" type="text" placeholder="Ex: 1.5 dCi" />
-                    <div class="q-error" data-error-for="versao"></div>
+                    <label for="auto_versao">Versão</label>
+                    <input id="auto_versao" name="auto_versao" type="text" placeholder="Ex: 1.5 dCi" />
                   </div>
 
                   <div class="q-field q-col-4">
-                    <label for="cilindrada">Cilindrada (cc) <span class="req">*</span></label>
-                    <input id="cilindrada" name="cilindrada" type="number" min="1" step="1" placeholder="Ex: 1461" required />
-                    <div class="q-error" data-error-for="cilindrada"></div>
+                    <label for="auto_cilindrada">Cilindrada (cc) <span class="req">*</span></label>
+                    <input id="auto_cilindrada" name="auto_cilindrada" type="number" min="1" placeholder="Ex: 1461" required />
+                    <div class="q-error" data-error-for="auto_cilindrada"></div>
                   </div>
 
                   <div class="q-field q-col-4">
-                    <label for="peso_bruto">Peso Bruto (kg) <span class="req">*</span></label>
-                    <input id="peso_bruto" name="peso_bruto" type="number" min="1" step="1" placeholder="Ex: 1700" required />
-                    <div class="q-error" data-error-for="peso_bruto"></div>
-                  </div>
-                </div>
-              </section>
-
-              <!-- INFO COMPLEMENTAR -->
-              <section class="form-section" aria-labelledby="sec-perguntas">
-                <div class="form-section__head">
-                  <h3 class="form-section__title" id="sec-perguntas">Informação Complementar</h3>
-                  <p class="form-section__desc">Ajuda-nos a afinar a proposta.</p>
-                </div>
-
-                <div class="quote-grid">
-                  <div class="q-field q-col-6">
-                    <label for="data_carta">Quando tirou a carta de condução? <span class="req">*</span></label>
-                    <input id="data_carta" name="data_carta" type="date" required />
-                    <div class="q-error" data-error-for="data_carta"></div>
-                  </div>
-
-                  <div class="q-field q-col-6">
-                    <label for="inicio_seguro">Data em que o seguro vai iniciar? <span class="req">*</span></label>
-                    <input id="inicio_seguro" name="inicio_seguro" type="date" required />
-                    <div class="q-error" data-error-for="inicio_seguro"></div>
+                    <label for="auto_peso">Peso Bruto (kg) <span class="req">*</span></label>
+                    <input id="auto_peso" name="auto_peso" type="number" min="1" placeholder="Ex: 1700" required />
+                    <div class="q-error" data-error-for="auto_peso"></div>
                   </div>
 
                   <div class="q-field q-col-4">
-                    <label for="uso_ocasional">É para uso ocasional?</label>
-                    <select id="uso_ocasional" name="uso_ocasional">
-                      <option value="">—</option>
-                      <option value="sim">Sim</option>
-                      <option value="nao">Não</option>
-                    </select>
-                    <div class="q-error" data-error-for="uso_ocasional"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="direitos_ressalvados">Direitos ressalvados?</label>
-                    <select id="direitos_ressalvados" name="direitos_ressalvados">
-                      <option value="">—</option>
-                      <option value="sim">Sim</option>
-                      <option value="nao">Não</option>
-                    </select>
-                    <div class="q-error" data-error-for="direitos_ressalvados"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="atrelado_ate_300">Atrelado até 300kg?</label>
-                    <select id="atrelado_ate_300" name="atrelado_ate_300">
-                      <option value="">—</option>
-                      <option value="sim">Sim</option>
-                      <option value="nao">Não</option>
-                    </select>
-                    <div class="q-error" data-error-for="atrelado_ate_300"></div>
+                    <label for="auto_inicio">Início do Seguro <span class="req">*</span></label>
+                    <input id="auto_inicio" name="auto_inicio" type="date" required />
+                    <div class="q-error" data-error-for="auto_inicio"></div>
                   </div>
 
                   <div class="q-field q-col-12">
-                    <label for="obs">Observações (opcional)</label>
-                    <textarea id="obs" name="obs" rows="4" placeholder="Ex: coberturas pretendidas, assistência em viagem, etc."></textarea>
-                    <div class="q-error" data-error-for="obs"></div>
+                    <label for="auto_obs">Observações</label>
+                    <textarea id="auto_obs" name="auto_obs" rows="4" placeholder="Ex: Coberturas pretendidas, assistência em viagem, etc."></textarea>
                   </div>
                 </div>
               </section>
 
+              <!-- MOTO -->
+              <section class="form-section category-panel" data-category-panel="moto">
+                <div class="form-section__head">
+                  <h3 class="form-section__title">Dados da Moto</h3>
+                  <p class="form-section__desc">Informação essencial para cotação.</p>
+                </div>
+
+                <div class="quote-grid">
+                  <div class="q-field q-col-4">
+                    <label for="moto_matricula">Matrícula <span class="req">*</span></label>
+                    <input id="moto_matricula" name="moto_matricula" type="text" placeholder="AA-00-AA" required />
+                    <div class="q-error" data-error-for="moto_matricula"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="moto_data_matricula">Data da Matrícula <span class="req">*</span></label>
+                    <input id="moto_data_matricula" name="moto_data_matricula" type="date" required />
+                    <div class="q-error" data-error-for="moto_data_matricula"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="moto_cilindrada">Cilindrada (cc) <span class="req">*</span></label>
+                    <input id="moto_cilindrada" name="moto_cilindrada" type="number" min="1" placeholder="Ex: 750" required />
+                    <div class="q-error" data-error-for="moto_cilindrada"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="moto_marca">Marca <span class="req">*</span></label>
+                    <input id="moto_marca" name="moto_marca" type="text" placeholder="Ex: Yamaha" required />
+                    <div class="q-error" data-error-for="moto_marca"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="moto_modelo">Modelo <span class="req">*</span></label>
+                    <input id="moto_modelo" name="moto_modelo" type="text" placeholder="Ex: MT-07" required />
+                    <div class="q-error" data-error-for="moto_modelo"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="moto_inicio">Início do Seguro <span class="req">*</span></label>
+                    <input id="moto_inicio" name="moto_inicio" type="date" required />
+                    <div class="q-error" data-error-for="moto_inicio"></div>
+                  </div>
+
+                  <div class="q-field q-col-12">
+                    <label for="moto_obs">Observações</label>
+                    <textarea id="moto_obs" name="moto_obs" rows="4" placeholder="Ex: uso diário, garagens, coberturas, etc."></textarea>
+                  </div>
+                </div>
+              </section>
+
+              <!-- ACIDENTES PESSOAIS -->
+              <section class="form-section category-panel" data-category-panel="acidentes">
+                <div class="form-section__head">
+                  <h3 class="form-section__title">Acidentes Pessoais</h3>
+                  <p class="form-section__desc">Informação sobre a(s) pessoa(s) segura(s).</p>
+                </div>
+
+                <div class="quote-grid">
+                  <div class="q-field q-col-6">
+                    <label for="ap_pessoas">Nº de Pessoas <span class="req">*</span></label>
+                    <input id="ap_pessoas" name="ap_pessoas" type="number" min="1" placeholder="Ex: 1" required />
+                    <div class="q-error" data-error-for="ap_pessoas"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="ap_profissao">Profissão / Atividade <span class="req">*</span></label>
+                    <input id="ap_profissao" name="ap_profissao" type="text" placeholder="Ex: Construção, escritório, estudante..." required />
+                    <div class="q-error" data-error-for="ap_profissao"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="ap_capital">Capital Pretendido (€)</label>
+                    <input id="ap_capital" name="ap_capital" type="number" min="0" placeholder="Ex: 25000" />
+                  </div>
+
+                  <div class="q-field q-col-12">
+                    <label for="ap_obs">Observações</label>
+                    <textarea id="ap_obs" name="ap_obs" rows="4" placeholder="Ex: prática desportiva, cobertura 24h, etc."></textarea>
+                  </div>
+                </div>
+              </section>
+
+              <!-- SAÚDE -->
+              <section class="form-section category-panel" data-category-panel="saude">
+                <div class="form-section__head">
+                  <h3 class="form-section__title">Saúde</h3>
+                  <p class="form-section__desc">Dados básicos para a proposta.</p>
+                </div>
+
+                <div class="quote-grid">
+                  <div class="q-field q-col-6">
+                    <label for="saude_pessoas">Nº de Pessoas <span class="req">*</span></label>
+                    <input id="saude_pessoas" name="saude_pessoas" type="number" min="1" placeholder="Ex: 2" required />
+                    <div class="q-error" data-error-for="saude_pessoas"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="saude_idades">Idades (separadas por vírgula) <span class="req">*</span></label>
+                    <input id="saude_idades" name="saude_idades" type="text" placeholder="Ex: 32, 29, 4" required />
+                    <div class="q-error" data-error-for="saude_idades"></div>
+                  </div>
+
+                  <div class="q-field q-col-12">
+                    <label for="saude_obs">Observações</label>
+                    <textarea id="saude_obs" name="saude_obs" rows="4" placeholder="Ex: preferências de rede, reembolsos, etc."></textarea>
+                  </div>
+                </div>
+              </section>
+
+              <!-- VIDA RISCO -->
+              <section class="form-section category-panel" data-category-panel="vida">
+                <div class="form-section__head">
+                  <h3 class="form-section__title">Vida Risco</h3>
+                  <p class="form-section__desc">Dados para simulação do capital e prazo.</p>
+                </div>
+
+                <div class="quote-grid">
+                  <div class="q-field q-col-6">
+                    <label for="vida_capital">Capital Pretendido (€) <span class="req">*</span></label>
+                    <input id="vida_capital" name="vida_capital" type="number" min="1" placeholder="Ex: 100000" required />
+                    <div class="q-error" data-error-for="vida_capital"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="vida_prazo">Prazo (anos) <span class="req">*</span></label>
+                    <input id="vida_prazo" name="vida_prazo" type="number" min="1" placeholder="Ex: 20" required />
+                    <div class="q-error" data-error-for="vida_prazo"></div>
+                  </div>
+
+                  <div class="q-field q-col-12">
+                    <label for="vida_obs">Observações</label>
+                    <textarea id="vida_obs" name="vida_obs" rows="4" placeholder="Ex: associado a crédito habitação, coberturas, etc."></textarea>
+                  </div>
+                </div>
+              </section>
+
+              <!-- MULTIRRISCOS HABITAÇÃO -->
+              <section class="form-section category-panel" data-category-panel="hab">
+                <div class="form-section__head">
+                  <h3 class="form-section__title">Multirriscos Habitação</h3>
+                  <p class="form-section__desc">Dados do imóvel e tipo de uso.</p>
+                </div>
+
+                <div class="quote-grid">
+                  <div class="q-field q-col-6">
+                    <label for="hab_tipo">Tipo de Imóvel <span class="req">*</span></label>
+                    <select id="hab_tipo" name="hab_tipo" required>
+                      <option value="">Selecionar</option>
+                      <option value="apartamento">Apartamento</option>
+                      <option value="moradia">Moradia</option>
+                      <option value="outro">Outro</option>
+                    </select>
+                    <div class="q-error" data-error-for="hab_tipo"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="hab_uso">Uso <span class="req">*</span></label>
+                    <select id="hab_uso" name="hab_uso" required>
+                      <option value="">Selecionar</option>
+                      <option value="habitacao_propria">Habitação própria</option>
+                      <option value="arrendamento">Arrendamento</option>
+                      <option value="segunda_habitacao">Segunda habitação</option>
+                    </select>
+                    <div class="q-error" data-error-for="hab_uso"></div>
+                  </div>
+
+                  <div class="q-field q-col-12">
+                    <label for="hab_morada">Morada do Imóvel <span class="req">*</span></label>
+                    <input id="hab_morada" name="hab_morada" type="text" placeholder="Rua, nº, localidade" required />
+                    <div class="q-error" data-error-for="hab_morada"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="hab_area">Área (m²)</label>
+                    <input id="hab_area" name="hab_area" type="number" min="0" placeholder="Ex: 120" />
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="hab_capital">Capital Conteúdo/Edifício (€)</label>
+                    <input id="hab_capital" name="hab_capital" type="number" min="0" placeholder="Ex: 150000" />
+                  </div>
+
+                  <div class="q-field q-col-12">
+                    <label for="hab_obs">Observações</label>
+                    <textarea id="hab_obs" name="hab_obs" rows="4" placeholder="Ex: coberturas adicionais, danos por água, etc."></textarea>
+                  </div>
+                </div>
+              </section>
+
+              <!-- PPR -->
+              <section class="form-section category-panel" data-category-panel="ppr">
+                <div class="form-section__head">
+                  <h3 class="form-section__title">PPR</h3>
+                  <p class="form-section__desc">Preferências de investimento.</p>
+                </div>
+
+                <div class="quote-grid">
+                  <div class="q-field q-col-6">
+                    <label for="ppr_valor">Valor Mensal (€) <span class="req">*</span></label>
+                    <input id="ppr_valor" name="ppr_valor" type="number" min="1" placeholder="Ex: 50" required />
+                    <div class="q-error" data-error-for="ppr_valor"></div>
+                  </div>
+
+                  <div class="q-field q-col-6">
+                    <label for="ppr_objetivo">Objetivo <span class="req">*</span></label>
+                    <select id="ppr_objetivo" name="ppr_objetivo" required>
+                      <option value="">Selecionar</option>
+                      <option value="reforma">Reforma</option>
+                      <option value="beneficios_fiscais">Benefícios fiscais</option>
+                      <option value="poupanca">Poupança</option>
+                    </select>
+                    <div class="q-error" data-error-for="ppr_objetivo"></div>
+                  </div>
+
+                  <div class="q-field q-col-12">
+                    <label for="ppr_obs">Observações</label>
+                    <textarea id="ppr_obs" name="ppr_obs" rows="4" placeholder="Ex: perfil de risco, horizonte temporal, etc."></textarea>
+                  </div>
+                </div>
+              </section>
+
+              <!-- RC GERAL -->
+              <section class="form-section category-panel" data-category-panel="rc">
+                <div class="form-section__head">
+                  <h3 class="form-section__title">Responsabilidade Civil Geral</h3>
+                  <p class="form-section__desc">Dados básicos do negócio/atividade.</p>
+                </div>
+
+                <div class="quote-grid">
+                  <div class="q-field q-col-8">
+                    <label for="rc_atividade">Atividade <span class="req">*</span></label>
+                    <input id="rc_atividade" name="rc_atividade" type="text" placeholder="Ex: Remodelações, restauração, eventos..." required />
+                    <div class="q-error" data-error-for="rc_atividade"></div>
+                  </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="rc_faturacao">Faturação Anual (€)</label>
+                    <input id="rc_faturacao" name="rc_faturacao" type="number" min="0" placeholder="Ex: 120000" />
+                  </div>
+
+                  <div class="q-field q-col-12">
+                    <label for="rc_obs">Observações</label>
+                    <textarea id="rc_obs" name="rc_obs" rows="4" placeholder="Ex: nº colaboradores, locais de trabalho, necessidades específicas..."></textarea>
+                  </div>
+                </div>
+              </section>
+
+              <!-- AÇÕES -->
               <div class="form-actions">
                 <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
                 <button class="btn btn-primary quote-submit" type="submit">Enviar pedido</button>
               </div>
-
-              <input type="hidden" name="tipo" value="seguro_auto" />
             </form>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- JS do site -->
+    <!-- JS -->
     <script type="module" src="/js/main.js"></script>
     <script src="/js/seguro.js" defer></script>
   </body>
