@@ -1210,8 +1210,13 @@ section {
 }
 .contact-icon {
   filter: none;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 .contact-info-item .contact-icon {
-  /* se o svg for currentColor e estiver inline, funciona; com IMG depende do ficheiro */
-}
-
+  align-items: flex-start;
+  gap: 16px;
+  /* align-items: center; */
+}   
