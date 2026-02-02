@@ -1209,7 +1209,7 @@ section {
   display: block;
 }
 .contact-icon {
-  filter: none;
+  filter: invert(27%) sepia(68%) saturate(2478%) hue-rotate(200deg) brightness(92%) contrast(101%);
   width: 24px;
   height: 24px;
   flex-shrink: 0;
