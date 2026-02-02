@@ -1,7 +1,7 @@
 /* RESET + VARS */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
---primary-color:#0066FF;--primary-dark:#0052CC;--primary-light:#3385FF;--secondary-color:#215ba4;
+--primary-color:#215ba4;--primary-dark:#0052CC;--primary-light:#3385FF;--secondary-color:#215ba4;
 --text-dark:#1A1A1A;--text-light:#666666;--text-white:#FFF;
 --background-light:#F8F9FA;--background-white:#FFF;--border-color:#E5E5E5;
 --success-color:#10B981;--error-color:#EF4444;--overlay-dark:rgba(0,0,0,.6);

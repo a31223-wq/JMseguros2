@@ -300,6 +300,11 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="/js/main.js"></script>
+    <script type="module" src="/js/main.js"></script>
+
+    <!-- Ano automático -->
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
