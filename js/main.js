@@ -279,7 +279,7 @@ function initContactForm() {
 
     // Show configuration warning if EmailJS is not set up
     if (!isEmailJSConfigured) {
-        console.warn('EmailJS is not configured. Please update the credentials in main.js to enable email sending.');
+        console.warn('O EmailJS não está configurado. Por favor, atualize as credenciais no arquivo main.js para ativar o envio de e-mails.');
     }
 
     form.addEventListener('submit', function(e) {
@@ -299,22 +299,22 @@ function initContactForm() {
         let isValid = true;
 
         if (name === '' || name.length < 2) {
-            showError('name', 'Please enter your full name');
+            showError('name', 'Digite o nome completo!');
             isValid = false;
         }
 
         if (email === '' || !isValidEmail(email)) {
-            showError('email', 'Please enter a valid email address');
+            showError('email', 'Email inválido!');
             isValid = false;
         }
 
         if (phone !== '' && !isValidPhone(phone)) {
-            showError('phone', 'Please enter a valid phone number');
+            showError('phone', 'Telefone inválido!');
             isValid = false;
         }
 
         if (message === '' || message.length < 10) {
-            showError('message', 'Please enter a message (at least 10 characters)');
+            showError('message', 'Por favor, digite uma mensagem (com pelo menos 10 caracteres)');
             isValid = false;
         }
 
@@ -332,7 +332,7 @@ function initContactForm() {
         } else {
             // Show success message even without EmailJS (for demo purposes)
             showSuccessMessage();
-            console.log('Form submitted with data:', { name, email, phone, insuranceType, message });
+            console.log('Formulário submetido com os dados:', { name, email, phone, insuranceType, message });
         }
     });
 
@@ -342,17 +342,17 @@ function initContactForm() {
         const originalText = submitButton.textContent;
 
         // Show loading state
-        submitButton.textContent = 'Sending...';
+        submitButton.textContent = 'A enviar...';
         submitButton.disabled = true;
 
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData, EMAILJS_PUBLIC_KEY)
             .then(function(response) {
-                console.log('Email sent successfully!', response);
+                console.log('Email enviado com sucesso!', response);
                 showSuccessMessage();
             })
             .catch(function(error) {
-                console.error('Failed to send email:', error);
-                alert('Sorry, there was an error sending your message. Please try again later or contact us directly.');
+                console.error('Falha ao enviar email:', error);
+                alert('Desculpe, ocorreu um erro ao enviar a sua mensagem. Tente novamente mais tarde ou entre em contato conosco diretamente.');
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
             });
@@ -396,7 +396,7 @@ function initContactForm() {
 
     function isValidPhone(phone) {
         const phoneRegex = /^[\d\s\-\+\(\)]+$/;
-        return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 10;
+        return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 9;
     }
 
     function showError(fieldId, message) {
@@ -553,5 +553,5 @@ function throttle(func, limit) {
 // CONSOLE MESSAGE
 // ==========================================
 
-console.log('%c SecureLife Insurance ', 'background: #0066FF; color: #fff; padding: 10px 20px; font-size: 16px; font-weight: bold;');
-console.log('Website loaded successfully! All interactive features are ready.');
+console.log('%c Jorge Marques Seguros ', 'background: #0066FF; color: #fff; padding: 10px 20px; font-size: 16px; font-weight: bold;');
+console.log('Website carregado com sucesso! Todas as funções ativas.');
