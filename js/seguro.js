@@ -384,15 +384,32 @@
 
   // ===== TABS (CATEGORIAS) =====
   if (catButtons.length) {
+    const header = document.querySelector(".header");
+
     catButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         const key = btn.dataset.category;
         if (!key) return;
+
         setActiveCategory(key);
 
+        // scroll suave com offset do header
+        const card = form.closest(".form-card") || form;
+        const headerHeight = header ? header.offsetHeight : 0;
+        const y =
+          card.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight -
+          24; // margem extra
+
+        window.scrollTo({
+          top: y,
+          behavior: "smooth",
+        });
       });
     });
   }
+
 
   // ===== MOBILE MENU (compatível com vários ids) =====
   const mobileToggle =

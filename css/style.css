@@ -445,15 +445,8 @@ box-shadow:0 0 0 4px rgba(239,68,68,.12)
   border-color:rgba(0,102,255,.18);
 }
 
-.quote-cat.active::after{
-  content:"";
-  position:absolute;
-  left:18px;
-  right:18px;
-  bottom:8px;
-  height:3px;
-  border-radius:999px;
-  background:#F5C400; /* amarelo do teu exemplo */
+.quote-cat.active::after {
+  display: none !important;
 }
 
 /* responsivo: deixa mais compacto */
