@@ -14,7 +14,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/style.css" />
 
-    <link rel="icon" type="image/svg+xml" href="/content/icons/rush.svg" />
+    <link rel="icon" type="image/svg+xml" href="/content\icons/JM-icon.svg" /> 
   </head>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
@@ -36,18 +36,22 @@
 
     <!-- HEADER -->
     <header id="header" class="header">
-      <div class="container">
+      <div class="site-container">
         <div class="header-content">
-          <a class="logo" href="#home">
-            <span class="logo-text">Jorge Marques Seguros</span>
+          <a class="logo" href="#home" aria-label="Jorge Marques Seguros">
+            <img
+              src="/content\icons/JM-horizontal.svg"
+              alt="Jorge Marques Seguros"
+              class="logo-image"
+            />
           </a>
-
           <nav id="nav" class="nav">
             <a class="nav-link" href="#home">Início</a>
             <a class="nav-link" href="#services">Seguros</a>
             <a class="nav-link" href="#benefits">Vantagens</a>
             <a class="nav-link" href="#faq">FAQ</a>
             <a class="nav-link" href="#contact">Contactos</a>
+            <a class="btn btn-primary" href="#contact">Simular</a>
           </nav>
 
           <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">
@@ -79,21 +83,6 @@
             <img src="./assets/images/hero-3.jpg" alt="Carro seguro" />
             <div class="hero-slide-overlay"></div>
           </div>
-
-          <!-- Hero content -->
-          <div class="container">
-            <div class="hero-content">
-              <h1 class="hero-title">Proteção inteligente para a sua vida</h1>
-              <p class="hero-subtitle">
-                Soluções de seguro simples, transparentes e adaptadas a si — casa, auto, saúde e vida.
-              </p>
-              <div class="hero-cta">
-                <a class="btn btn-primary" href="#contact">Pedir Simulação</a>
-                <a class="btn btn-secondary" href="#services" style="margin-left: 12px;">Ver Coberturas</a>
-              </div>
-            </div>
-          </div>
-
           <!-- Arrows -->
           <button class="hero-arrow hero-arrow-prev" aria-label="Anterior">❮</button>
           <button class="hero-arrow hero-arrow-next" aria-label="Seguinte">❯</button>
@@ -109,7 +98,7 @@
 
       <!-- INSURANCE CARDS -->
       <section id="services" class="insurance-section">
-        <div class="container">
+        <div class="site-container">
           <div class="section-header animate-on-scroll">
             <h2 class="section-title">Seguros</h2>
             <p class="section-subtitle">
@@ -175,7 +164,7 @@
 
       <!-- BENEFITS -->
       <section id="benefits">
-        <div class="container">
+        <div class="site-container">
           <div class="section-header animate-on-scroll">
             <h2 class="section-title">Porquê escolher-nos</h2>
             <p class="section-subtitle">
@@ -215,7 +204,7 @@
 
       <!-- FAQ -->
       <section id="faq">
-        <div class="container">
+        <div class="site-container">
           <div class="section-header animate-on-scroll">
             <h2 class="section-title">Perguntas Frequentes</h2>
             <p class="section-subtitle">Respostas rápidas às dúvidas mais comuns.</p>
@@ -263,7 +252,7 @@
 
       <!-- CONTACT -->
       <section id="contact" class="contact-section">
-        <div class="container">
+        <div class="site-container">
           <div class="section-header animate-on-scroll">
             <h2 class="section-title">Contacto</h2>
             <p class="section-subtitle">
@@ -276,7 +265,9 @@
               <h3>Fale connosco</h3>
 
               <div class="contact-info-item">
-                <img class="contact-icon" src="/content/icons/location.svg" alt="" aria-hidden="true" />
+                <div class="bg-blue-100 p-3 rounded-lg">
+                  <i data-lucide="MapPin" class="w-6 h-6 text-blue-600"></i>
+                </div>
                 <div>
                   <div class="info-label">Morada</div>
                   <div class="info-value">Rua Exemplo, 123 — Lisboa</div>
@@ -284,7 +275,9 @@
               </div>
               
               <div class="contact-info-item">
-                <img class="contact-icon" src="./content/icons/telephone.svg" alt="" aria-hidden="true" />
+                <div class="bg-blue-100 p-3 rounded-lg">
+                  <i data-lucide="Phone" class="w-6 h-6 text-blue-600"></i>
+                </div>
                 <div>
                   <div class="info-label">Telefone</div>
                   <div class="info-value">
@@ -296,7 +289,9 @@
               </div>
               
               <div class="contact-info-item">
-                <img class="contact-icon" src="/content/icons/mail.svg" alt="" aria-hidden="true" />
+                <div class="bg-blue-100 p-3 rounded-lg">
+                  <i data-lucide="Mail" class="w-6 h-6 text-blue-600"></i>
+                </div>
                 <div>
                   <div class="info-label">Email</div>
                   <div class="info-value">
@@ -394,7 +389,7 @@
             href="https://www.instagram.com/jorgemarquesseguros"
             target="_blank"
             rel="noopener"
-            class="inline-flex items-center justify-center text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
+            class="inline-flex items-center justify-center text-gray-400 hover:text-[#215ba4] transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
             aria-label="Instagram"
           >
             <i data-lucide="instagram" class="w-5 h-5"></i>
@@ -404,7 +399,7 @@
             href="https://www.facebook.com/jorgemarquesseguros"
             target="_blank"
             rel="noopener"
-            class="inline-flex items-center justify-center text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
+            class="inline-flex items-center justify-center text-gray-400 hover:text-[#215ba4] transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
             aria-label="Facebook"
           >
             <i data-lucide="facebook" class="w-5 h-5"></i>
@@ -416,12 +411,12 @@
       <div class="md:pl-28">
         <h4 class="text-lg font-bold mb-4">Seguros</h4>
         <ul class="space-y-2">
-          <li><a href="#" class="text-gray-400 hover:text-white transition">Automóvel</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition">Animal</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition">Habitação</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition">Saúde</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition">Vida</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition">Viagem</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-[#215ba4]">Automóvel</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-[#215ba4]">Animal</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-[#215ba4]">Habitação</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-[#215ba4]">Saúde</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-[#215ba4]">Vida</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-[#215ba4]">Viagem</a></li>
         </ul>
       </div>
 
@@ -430,7 +425,7 @@
         <h4 class="text-lg font-bold mb-4">Empresa</h4>
         <ul class="space-y-2">
           <li>
-            <button onclick="scrollToSection('contact')" class="text-gray-400 hover:text-white transition" type="button">
+            <button onclick="scrollToSection('contact')" class="text-gray-400 hover:text-[#215ba4]" type="button">
               Contacto
             </button>
           </li>
@@ -441,11 +436,11 @@
       <div>
         <h4 class="text-lg font-bold mb-4">Legal</h4>
         <ul class="space-y-2">
-          <li><a href="#" class="text-gray-400 hover:text-white transition">Termos e Condições</a></li>
-          <li><a href="/politica-privacidade/" class="text-gray-400 hover:text-white transition">Política de Privacidade</a></li>
-          <li><a href="/cookies/" class="text-gray-400 hover:text-white transition">Política de Cookies</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition">Proteção de Dados</a></li>
-          <li><a href="https://www.livroreclamacoes.pt/Pedido/Reclamacao" class="text-gray-400 hover:text-white transition">Livro de Reclamações</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-[#215ba4]">Termos e Condições</a></li>
+          <li><a href="/politica-privacidade/" class="text-gray-400 hover:text-[#215ba4]">Política de Privacidade</a></li>
+          <li><a href="/cookies/" class="text-gray-400 hover:text-[#215ba4]">Política de Cookies</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-[#215ba4]">Proteção de Dados</a></li>
+          <li><a href="https://www.livroreclamacoes.pt/Pedido/Reclamacao" class="text-gray-400 hover:text-[#215ba4]">Livro de Reclamações</a></li>
         </ul>
       </div>
 
@@ -457,7 +452,7 @@
         &copy; <span id="year"></span> Jorge Marques - Mediação de Seguros, Lda. Todos os direitos reservados.
       </p>
       <p class="mt-2 text-sm">
-        Registo ASF nº (MUDAR NUMERO) | NIF: 507757165
+        Registo ASF nº 407154829 | NIF: 507757165
       </p>
     </div>
 

@@ -58,6 +58,9 @@
     /* Layout */
     --container-max-width: 1200px;
     --header-height: 80px;
+
+    /* espaço lateral global */
+    --page-gutter: 24px; 
 }
 
 html {
@@ -71,6 +74,8 @@ body {
     color: var(--text-dark);
     background-color: var(--background-light);
     overflow-x: hidden;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* ========================================
@@ -109,7 +114,8 @@ body {
 .container {
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding-left: clamp(16px, 3vw, 32px);
+    padding-right: clamp(16px, 3vw, 32px);
 }
 
 /* ========================================
@@ -1226,3 +1232,19 @@ section {
   gap: 16px;
   /* align-items: center; */
 }   
+@media (max-width: 768px) {
+  .logo-image {
+    height: 32px;
+  }
+}
+.logo-image {
+  height: 40px;   /* ajusta se quiseres */
+  width: auto;
+  display: block;
+}
+.site-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-left: clamp(16px, 3vw, 32px);
+  padding-right: clamp(16px, 3vw, 32px);
+}
