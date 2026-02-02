@@ -21,8 +21,13 @@
   </head>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
-    lucide.createIcons();
-    document.getElementById('year').textContent = new Date().getFullYear();  
+    document.addEventListener('DOMContentLoaded', () => {
+      // Ícones Lucide
+      if (window.lucide) lucide.createIcons();
+      // Ano automático
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    });
     function scrollToSection(id) {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -367,7 +372,6 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
 <!-- FOOTER -->
 <footer class="bg-gray-900 text-white py-12">
   <div class="max-w-6xl mx-auto px-4">
@@ -376,22 +380,26 @@
 
       <!-- Marca -->
       <div>
-        <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+        <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
           <i data-lucide="shield" class="w-8 h-8 text-blue-400"></i>
-          <span class="text-2xl font-bold">Jorge Marques Seguros</span>
+
+          <!-- evita o nome partir e parecer “com espaçamento” -->
+          <span class="text-2xl font-bold whitespace-nowrap leading-none">
+            Jorge Marques Seguros
+          </span>
         </div>
 
         <p class="text-gray-400 mb-4">
           Protegendo o que é mais importante para si desde 1998.
         </p>
 
-        <!-- Ícones sociais -->
-        <div class="flex justify-center md:justify-start space-x-4">
+        <!-- Ícones sociais por baixo do slogan -->
+        <div class="flex justify-center md:justify-start gap-4">
           <a
             href="https://www.instagram.com/"
             target="_blank"
             rel="noopener"
-            class="text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
+            class="inline-flex items-center justify-center text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
             aria-label="Instagram"
           >
             <i data-lucide="instagram" class="w-5 h-5"></i>
@@ -401,7 +409,7 @@
             href="https://www.facebook.com/"
             target="_blank"
             rel="noopener"
-            class="text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
+            class="inline-flex items-center justify-center text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
             aria-label="Facebook"
           >
             <i data-lucide="facebook" class="w-5 h-5"></i>
@@ -426,11 +434,7 @@
         <h4 class="text-lg font-bold mb-4">Empresa</h4>
         <ul class="space-y-2">
           <li>
-            <button
-              onclick="scrollToSection('about')"
-              class="text-gray-400 hover:text-white transition"
-              type="button"
-            >
+            <button onclick="scrollToSection('about')" class="text-gray-400 hover:text-white transition" type="button">
               Sobre Nós
             </button>
           </li>
@@ -438,11 +442,7 @@
           <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white transition">Imprensa</a></li>
           <li>
-            <button
-              onclick="scrollToSection('contact')"
-              class="text-gray-400 hover:text-white transition"
-              type="button"
-            >
+            <button onclick="scrollToSection('contact')" class="text-gray-400 hover:text-white transition" type="button">
               Contacto
             </button>
           </li>
@@ -483,6 +483,7 @@
 
   </div>
 </footer>
+
 
 
     <!-- JS -->
