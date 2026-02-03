@@ -245,107 +245,147 @@ body.no-scroll {
 }
 
 /* =========================
-   HERO (ecrã completo)
+   HERO (imagem única + sticky)
 ========================= */
-.hero {
+
+/* =========================
+   HERO PARALLAX (scroll normal + imagem fixa)
+========================= */
+.hero-parallax {
   position: relative;
+
   height: 100vh;
-  min-height: 100vh;
-  overflow: hidden;
-  padding: 0;
+  padding-top: var(--header-height);
+  box-sizing: border-box;
+
+  background-image: url("/content/images/hero.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* imagem um pouco mais para a direita */
+  background-position: 60% 100%;
+
+  /* parallax desktop */
+  background-attachment: fixed;
 }
 
-.hero-slideshow {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
 
-.hero-slide {
+/* overlay opcional para legibilidade do texto */
+.hero-parallax-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%);
   pointer-events: none;
 }
 
-.hero-slide.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.hero-slide img {
-  width: 100%;
+/* conteúdo por cima do background */
+.hero-parallax-content {
+  position: relative;
   height: 100%;
-  object-fit: cover;
-}
 
-.hero-slide-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0.3) 100%);
-}
-
-.hero-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  border: 0;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  z-index: 20;
-  color: var(--text-dark);
+  align-items: center;     /* centro vertical */
+  justify-content: flex-start;  /* <- ESQUERDA */
+
+  padding-left: clamp(16px, 6vw, 72px);
+  padding-right: 16px;
 }
 
-.hero-arrow:hover {
-  background: var(--background-white);
-  transform: translateY(-50%) scale(1.1);
+.hero-parallax-text {
+  max-width: 20ch;
+  text-align: left;
+
+  color: #fff;
+  font-weight: 800;
+  line-height: 1.05;
+  font-size: clamp(28px, 3.2vw, 56px);
+
+  text-shadow: 0 8px 26px rgba(0,0,0,0.45);
 }
 
-.hero-arrow-prev {
-  left: var(--spacing-md);
+.hero-parallax-text .line-2 {
+  word-spacing: 0.15em; /* aumenta/diminui até bater certo */
+  display: inline-block;
 }
 
-.hero-arrow-next {
-  right: var(--spacing-md);
+
+/* =========================
+   TABLET (iPad) — ajustar hero
+   769px → 1024px
+========================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-parallax {
+    /* imagem mais à direita */
+    background-position: 50% 58%;
+
+    /* em tablets o fixed pode ser instável em alguns browsers */
+    background-attachment: scroll;
+  }
+
+  .hero-parallax-content {
+    /* texto mais para cima */
+    align-items: flex-start;
+    padding-top: clamp(110px, 16vh, 10px);
+
+    /* um bocadinho mais de respiro à esquerda */
+    padding-left: clamp(18px, 5vw, 60px);
+  }
+
+  .hero-parallax-text {
+    /* texto maior */
+    font-size: clamp(45px, 4.2vw, 54px);
+    line-height: 1.12;
+    max-width: 26ch;
+  }
 }
 
-.hero-dots {
-  position: absolute;
-  bottom: var(--spacing-xl);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 12px;
-  z-index: 20;
+
+
+@media (max-width: 768px) {
+  .hero-parallax {
+    /* troca da imagem */
+    background-image: url("/content/images/hero-mobile.png");
+
+    /* mobile não lida bem com fixed */
+    background-attachment: scroll;
+
+    background-size: cover;
+    background-position: 60% top;
+
+    height: 100vh;
+    padding-top: var(--header-height);
+  }
+
+  /* texto passa para o topo */
+  .hero-parallax-content {
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    padding-top: clamp(48px, 12vh, 110px);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-parallax-text {
+    text-align: left;
+
+    /* 🔥 grande impacto visual */
+    font-size: clamp(25px, 9vw, 52px);
+    line-height: 1.32;
+
+    font-weight: 900;
+    letter-spacing: 0.02em;
+
+    max-width: none;
+
+    color: #ffffff;
+    text-shadow: 0 8px 28px rgba(0,0,0,0.55);
+  }
 }
 
-.hero-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  border: 0;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  padding: 0;
-}
 
-.hero-dot.active,
-.hero-dot:hover {
-  background: var(--background-white);
-  transform: scale(1.2);
-}
+
+
 
 /* =========================
    BUTTONS
@@ -1311,4 +1351,54 @@ section {
     padding: 10px 12px;
     font-size: 13px;
   }
+}
+
+/* =========================
+   CONTACT ICONS — sem fundo + ícone mais grosso + acento degradé
+========================= */
+.contact-icon {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent; /* remove fundo */
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+
+  position: relative;
+}
+
+/* acento degradé (sem “quadrado” atrás) */
+.contact-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 28px;
+  height: 3px;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #215ba4 20%, #000 100%);
+  opacity: 0.9;
+}
+
+/* garante tamanho do svg e “engrossa” */
+.lucide-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+
+  stroke: #000;          /* preto (porque gradiente no stroke precisa de defs/JS) */
+  stroke-width: 2.8;     /* mais “gordo” */
+  fill: none;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
