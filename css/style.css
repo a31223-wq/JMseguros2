@@ -1389,16 +1389,20 @@ section {
   opacity: 0.9;
 }
 
-/* garante tamanho do svg e “engrossa” */
-.lucide-icon svg {
+/* garante tamanho igual em TODOS os ícones do contacto */
+.contact-icon svg,
+.contact-icon .lucide-icon {
   width: 28px;
   height: 28px;
   display: block;
 
-  stroke: #000;          /* preto (porque gradiente no stroke precisa de defs/JS) */
-  stroke-width: 2.8;     /* mais “gordo” */
+  stroke: #000;
+  stroke-width: 2;
   fill: none;
 
   stroke-linecap: round;
   stroke-linejoin: round;
+
+  /* ajuda a manter a espessura consistente */
+  vector-effect: non-scaling-stroke;
 }
