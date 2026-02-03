@@ -4,47 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jorge Marques Seguros</title>
-    
+
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="icon" type="image/svg+xml" href="/content\icons/JM-icon-favicon.svg" /> 
-    
+    <link rel="icon" type="image/svg+xml" href="/content/icons/JM-icon-favicon.svg" />
+
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5F9BB4MV');</script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5F9BB4MV");
+    </script>
     <!-- End Google Tag Manager -->
 
+    <!-- Tailwind (sem preflight para não mexer no teu CSS) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-          corePlugins: { preflight: false } // não mexe no resto do teu CSS
-        }
-      </script>
-  </head>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Ícones Lucide
-      if (window.lucide) lucide.createIcons();
-      // Ano automático
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
-    });
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
-  <body>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+      };
+    </script>
 
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5F9BB4MV"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5F9BB4MV"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
-     
-    <!-- Background overlay -->
+
     <div class="background-overlay"></div>
 
     <!-- HEADER -->
@@ -53,19 +55,26 @@
         <div class="header-content">
           <a class="logo" href="#home" aria-label="Jorge Marques Seguros">
             <img
-              src="/content\icons/JM-horizontal.svg"
+              src="/content/icons/JM-horizontal.svg"
               alt="Jorge Marques Seguros"
               class="logo-image"
             />
           </a>
-          <nav id="nav" class="nav">
-            <a class="nav-link" href="#home">Início</a>
-            <a class="nav-link" href="#services">Seguros</a>
-            <a class="nav-link" href="#benefits">Vantagens</a>
-            <a class="nav-link" href="#faq">FAQ</a>
-            <a class="nav-link" href="#contact">Contactos</a>
-            <a class="btn btn-primary" href="/seguro-auto/index.html">Simular</a>
+
+          <nav id="nav" class="nav" aria-label="Navegação principal">
+            <div class="nav-links">
+              <a class="nav-link" href="#services">Seguros</a>
+              <a class="nav-link" href="#benefits">Vantagens</a>
+              <a class="nav-link" href="#faq">FAQ</a>
+              <a class="nav-link" href="#contact">Contactos</a>
+
+              <!-- ✅ Simular dentro do menu (apenas mobile) -->
+              <a class="nav-link nav-link-cta" href="/seguro-auto/index.html">Simular</a>
+            </div>
           </nav>
+
+          <!-- ✅ Simular desktop (fica à direita; some em mobile) -->
+          <a class="btn btn-primary header-cta" href="/seguro-auto/index.html">Simular</a>
 
           <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">
             <span></span><span></span><span></span>
@@ -79,28 +88,24 @@
       <!-- HERO -->
       <section id="home" class="hero">
         <div class="hero-slideshow">
-          <!-- Slide 1 -->
           <div class="hero-slide active">
             <img src="/content/icons/Familia.jpeg" alt="Família protegida" />
             <div class="hero-slide-overlay"></div>
           </div>
 
-          <!-- Slide 2 -->
           <div class="hero-slide">
             <img src="/content/icons/Animal.jpeg" alt="Casa segura" />
             <div class="hero-slide-overlay"></div>
           </div>
 
-          <!-- Slide 3 -->
           <div class="hero-slide">
             <img src="/content/icons/Habitacao.jpeg" alt="Carro seguro" />
             <div class="hero-slide-overlay"></div>
           </div>
-          <!-- Arrows -->
+
           <button class="hero-arrow hero-arrow-prev" aria-label="Anterior">❮</button>
           <button class="hero-arrow hero-arrow-next" aria-label="Seguinte">❯</button>
 
-          <!-- Dots -->
           <div class="hero-dots" aria-label="Navegação do slideshow">
             <button class="hero-dot active" aria-label="Slide 1"></button>
             <button class="hero-dot" aria-label="Slide 2"></button>
@@ -166,32 +171,6 @@
             </div>
 
             <div class="insurance-card animate-on-scroll">
-              <div class="insurance-card-icon">❤️</div>
-              <h3 class="insurance-card-title">Vida</h3>
-              <p class="insurance-card-description">
-                Garanta tranquilidade para a sua família com proteção financeira em momentos difíceis.
-              </p>
-              <ul class="insurance-card-features">
-                <li>Cobertura por invalidez</li>
-                <li>Capital ajustável</li>
-                <li>Apoio familiar</li>
-              </ul>
-            </div>
-
-            <div class="insurance-card animate-on-scroll">
-              <div class="insurance-card-icon">❤️</div>
-              <h3 class="insurance-card-title">Vida</h3>
-              <p class="insurance-card-description">
-                Garanta tranquilidade para a sua família com proteção financeira em momentos difíceis.
-              </p>
-              <ul class="insurance-card-features">
-                <li>Cobertura por invalidez</li>
-                <li>Capital ajustável</li>
-                <li>Apoio familiar</li>
-              </ul>
-            </div>
-
-            <div class="insurance-card animate-on-scroll">
               <div class="insurance-card-icon">
                 <i data-lucide="stethoscope" class="w-8 h-8"></i>
               </div>
@@ -221,9 +200,7 @@
 
           <div class="benefits-grid">
             <div class="benefit-item animate-on-scroll">
-              <div class="benefit-icon">
-                <link rel="icon" type="image/svg+xml" href="/content/icons/rush.svg" />
-              </div>
+              <div class="benefit-icon">⚡</div>
               <h3 class="benefit-title">Resposta rápida</h3>
               <p class="benefit-description">
                 Simulações e propostas sem burocracias e com acompanhamento.
@@ -311,25 +288,23 @@
             <div class="contact-info animate-on-scroll">
               <h3>Fale connosco</h3>
 
-              
-              
               <div class="contact-info-item">
                 <div class="bg-blue-100 p-3 rounded-lg">
-                  <i data-lucide="Phone" class="w-6 h-6 text-blue-600"></i>
+                  <i data-lucide="phone" class="w-6 h-6 text-blue-600"></i>
                 </div>
                 <div>
                   <div class="info-label">Telefone</div>
                   <div class="info-value">
-                    <a href="tel:+351 262 562 999" class="text-gray-600 hover:text-[#215ba4]">
+                    <a href="tel:+351262562999" class="text-gray-600 hover:text-[#215ba4]">
                       +351 262 562 999
                     </a>
                   </div>
                 </div>
               </div>
-              
+
               <div class="contact-info-item">
                 <div class="bg-blue-100 p-3 rounded-lg">
-                  <i data-lucide="Mail" class="w-6 h-6 text-blue-600"></i>
+                  <i data-lucide="mail" class="w-6 h-6 text-blue-600"></i>
                 </div>
                 <div>
                   <div class="info-label">Email</div>
@@ -349,35 +324,32 @@
                   <i data-lucide="map-pin" class="w-6 h-6 text-blue-600"></i>
                 </div>
 
-                  <div>
-                    <div class="info-label">Morada</div>
+                <div>
+                  <div class="info-label">Morada</div>
 
-                    <!-- Morada 1 -->
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=Rua+Heróis+do+Ultramar+41+2450-027+Famalicão"
-                      target="_blank"
-                      rel="noopener"
-                      class="info-value block hover:text-[#215ba4]"
-                    >
-                      <span class="block">Rua Heróis do Ultramar 41</span>
-                      <span class="block">2450-027 Famalicão</span>
-                    </a>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Rua+Heróis+do+Ultramar+41+2450-027+Famalicão"
+                    target="_blank"
+                    rel="noopener"
+                    class="info-value block hover:text-[#215ba4]"
+                  >
+                    <span class="block">Rua Heróis do Ultramar 41</span>
+                    <span class="block">2450-027 Famalicão</span>
+                  </a>
 
-                    <!-- Espaço entre moradas -->
-                    <div style="height: 8px;"></div>
+                  <div style="height: 8px;"></div>
 
-                    <!-- Morada 2 -->
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=Rua+Alves+Redol+Loja+25+2450-168+Nazaré"
-                      target="_blank"
-                      rel="noopener"
-                      class="info-value block hover:text-[#215ba4]"
-                    >
-                      <span class="block">Rua Alves Redol, Loja 25</span>
-                      <span class="block">2450-168 Nazaré</span>
-                    </a>
-                  </div>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Rua+Alves+Redol+Loja+25+2450-168+Nazaré"
+                    target="_blank"
+                    rel="noopener"
+                    class="info-value block hover:text-[#215ba4]"
+                  >
+                    <span class="block">Rua Alves Redol, Loja 25</span>
+                    <span class="block">2450-168 Nazaré</span>
+                  </a>
                 </div>
+              </div>
             </div>
 
             <div class="contact-form-wrapper animate-on-scroll">
@@ -437,106 +409,91 @@
       </section>
     </main>
 
-<!-- FOOTER -->
-<footer class="footer">
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <div class="inline-grid md:grid-cols-3 gap-x-28 gap-y-12 mb-8 text-left mx-auto">
+          <div>
+            <div class="flex items-center justify-start mb-4">
+              <span class="text-2xl font-bold whitespace-nowrap leading-none ">Jorge Marques Seguros</span>
+            </div>
 
-  <div class="max-w-6xl mx-auto px-4">
+            <p class="text-gray-400 mb-4">Seguramos o presente, asseguramos o futuro.</p>
 
-    <div class="grid md:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+            <div class="flex justify-start gap-4">
+              <a
+                href="https://www.instagram.com/jorgemarquesseguros"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center text-gray-400 hover:text-[#215ba4] transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
+                aria-label="Instagram"
+              >
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+              </a>
 
-      <!-- Marca -->
-      <div>
-        <div class="flex items-center justify-center md:justify-start mb-4">
-          <span class="text-2xl font-bold whitespace-nowrap leading-none">
-            Jorge Marques Seguros
-          </span>
+              <a
+                href="https://www.facebook.com/jorgemarquesseguros"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center text-gray-400 hover:text-[#215ba4] transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
+                aria-label="Facebook"
+              >
+                <i data-lucide="facebook" class="w-5 h-5"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Seguros</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Acidentes Pessoais</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Automóvel</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Multirriscos Habitação</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Motociclo</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">PPR</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Responsabilidade Civil Geral</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Saúde</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Vida Risco</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Legal</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Termos e Condições</a></li>
+              <li><a href="/politica-privacidade/" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Política de Privacidade</a></li>
+              <li><a href="/politica-cookies/" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Política de Cookies</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Proteção de Dados</a></li>
+              <li>
+                <a href="https://www.livroreclamacoes.pt/Pedido/Reclamacao" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">
+                  Livro de Reclamações
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <p class="text-gray-400 mb-4">
-          Seguramos o presente, asseguramos o futuro.
-        </p>
-
-        <!-- Ícones sociais -->
-        <div class="flex justify-center md:justify-start gap-4">
-          <a
-            href="https://www.instagram.com/jorgemarquesseguros"
-            target="_blank"
-            rel="noopener"
-            class="inline-flex items-center justify-center text-gray-400 hover:text-[#215ba4] transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
-            aria-label="Instagram"
-          >
-            <i data-lucide="instagram" class="w-5 h-5"></i>
-          </a>
-
-          <a
-            href="https://www.facebook.com/jorgemarquesseguros"
-            target="_blank"
-            rel="noopener"
-            class="inline-flex items-center justify-center text-gray-400 hover:text-[#215ba4] transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
-            aria-label="Facebook"
-          >
-            <i data-lucide="facebook" class="w-5 h-5"></i>
-          </a>
+        <div class="border-t border-gray-600 pt-8 text-center text-gray-400">
+          <p>&copy; <span id="year"></span> Jorge Marques - Mediação de Seguros, Lda. Todos os direitos reservados.</p>
+          <p class="mt-2 text-sm">Registo ASF nº 407154829 | NIF: 507757165</p>
         </div>
       </div>
+    </footer>
 
-      <!-- Seguros  -->
-      <div class="md:pl-28">
-        <h4 class="text-lg font-bold mb-4">Seguros</h4>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Acidentes Pessoais</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Automóvel</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Multirriscos Habitação</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Motociclo</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">PPR</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Responsabilidade Civil Geral</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Saúde</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Vida Risco</a></li>
-        </ul>
-      </div>
 
-      <!-- Empresa  -->
-      <div class="md:pl-28">
-        <h4 class="text-lg font-bold mb-4">Empresa</h4>
-        <ul class="space-y-2">
-          <li>
-            <button onclick="scrollToSection('contact')" class="text-gray-400 hover:text-[#215ba4]" type="button">
-              Contacto
-            </button>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Legal -->
-      <div class="md:pl-22">
-        <h4 class="text-lg font-bold mb-4">Legal</h4>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-gray-400 hover:text-[#215ba4]">Termos e Condições</a></li>
-          <li><a href="/politica-privacidade/" class="text-gray-400 hover:text-[#215ba4]">Política de Privacidade</a></li>
-          <li><a href="/politica-cookies/" class="text-gray-400 hover:text-[#215ba4]">Política de Cookies</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-[#215ba4]">Proteção de Dados</a></li>
-          <li><a href="https://www.livroreclamacoes.pt/Pedido/Reclamacao" class="text-gray-400 hover:text-[#215ba4]">Livro de Reclamações</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Bottom -->
-    <div class="border-t border-gray-600 pt-8 text-center text-gray-400">
-      <p>
-        &copy; <span id="year"></span> Jorge Marques - Mediação de Seguros, Lda. Todos os direitos reservados.
-      </p>
-      <p class="mt-2 text-sm">
-        Registo ASF nº 407154829 | NIF: 507757165
-      </p>
-    </div>
-
-  </div>
-</footer>
-    <!-- JS -->
     <script type="module" src="/js/main.js"></script>
-    <!-- Ano automático -->
+
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) lucide.createIcons();
+        const y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+      });
+
+      function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
     </script>
   </body>
 </html>
